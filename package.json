@@ -1,0 +1,32 @@
+{
+  "name": "nexchat-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --parallel --filter ./apps/* dev",
+    "dev:web": "pnpm --filter @nexchat/web dev",
+    "dev:server": "pnpm --filter @nexchat/server start:dev",
+    "build": "pnpm --recursive build",
+    "lint": "pnpm --recursive lint",
+    "type-check": "pnpm --recursive type-check",
+    "db:migrate": "pnpm --filter @nexchat/server db:migrate",
+    "db:seed": "pnpm --filter @nexchat/server db:seed",
+    "db:studio": "pnpm --filter @nexchat/server db:studio"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@nestjs/core",
+      "@prisma/client",
+      "@prisma/engines",
+      "argon2",
+      "esbuild",
+      "prisma"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

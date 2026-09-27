@@ -1,0 +1,67 @@
+{
+  "expo": {
+    "name": "NexChat",
+    "slug": "nexchat",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "nexchat",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0e1621"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "io.nexchat.app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "NexChat requires camera access for video calling and media sharing.",
+        "NSMicrophoneUsageDescription": "NexChat requires microphone access for voice calling and voice messages.",
+        "NSPhotoLibraryUsageDescription": "NexChat requires access to your photos to share images and videos."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0e1621"
+      },
+      "package": "io.nexchat.app",
+      "permissions": [
+        "CAMERA",
+        "RECORD_AUDIO",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "NOTIFICATIONS"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Allow NexChat to record audio for voice messages and calls."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow NexChat to access your photos to select attachments."
+        }
+      ],
+      [
+        "@config-plugins/react-native-webrtc",
+        {
+          "cameraPermission": "Allow NexChat to access your camera for video calls.",
+          "microphonePermission": "Allow NexChat to access your microphone for voice and video calls."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "nexchat-mobile-app-id"
+      }
+    }
+  }
+}
